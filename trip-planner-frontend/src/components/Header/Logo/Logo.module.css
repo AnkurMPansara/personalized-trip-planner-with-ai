@@ -1,0 +1,36 @@
+:root {
+  --darkblue_pro: #121860;
+  --blue_pro: #002287;
+  --lightblue_pro: #1273df;
+  --white_pro: #ffffff;
+  --black_pro: #000000;
+  --grey_pro: #e2e2e2;
+  --golden_pro: #ffcc2b;
+  --lightbg_pro: #f1f7fa;
+  --bgblue_pro: #07053D;
+  --bglgpink_pro: #FFF5EA;
+  --bglgwht_pro: #ffffff;
+  --bgborder_pro: #FFD7A2;
+  --whitebg: #fff;
+  --blackclr: #000;
+  --bannerbg: #4b4b4b;
+  --lightgrey: #eeeeee;
+  --couponblck: #636363;
+}
+
+.logo {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  font-family: Poppins, sans-serif !important;
+  user-select: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  margin: auto;
+  height: 58px;
+  width: 156px;
+  display: inline-block;
+  background: url('https://images.emtcontent.com/brandlogo/emtlogo_new8.svg') 50% no-repeat;
+  background-size: 138px 58px;  
+}

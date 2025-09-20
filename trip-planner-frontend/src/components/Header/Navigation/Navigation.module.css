@@ -1,0 +1,95 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 100%;
+  background: none;
+}
+
+.navigation ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 5px;
+}
+
+.navigation li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 6px 12px; 
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: lowercase;
+  border-radius: 8px;
+}
+
+.navigation li:hover {
+  background-color: #d6eaff;
+}
+
+.navigation li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.menuicon {
+  display: block;
+  min-width: 26px;
+  height: 26px;
+  width: 26px;
+  margin-bottom: 4px;
+  background-repeat: no-repeat !important;
+  background-size: 280px 318px;
+  opacity: 0.8;
+}
+
+/* Individual icons only change background-position or image */
+.flighticon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -2px -2px;
+}
+
+.hotelicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -30px -2px;
+}
+
+.fphicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -58px -2px;
+}
+
+.trainicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -86px -2px;
+}
+
+.busicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -114px -2px;
+}
+
+.holidayicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -142px -2px;
+}
+
+.cabsicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -170px -2px;
+}
+
+.visaicon {
+  background-image: url("https://images.emtcontent.com/nwhomfiles/menuspritedesknw.png");
+  background-position: -198px -2px;
+}
