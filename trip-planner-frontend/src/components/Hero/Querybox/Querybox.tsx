@@ -1,13 +1,12 @@
 import React from "react";
 import "./QueryBox.css";
+import Dynamicloader from "./Dynamicloader/Dynamicloader";
 
 const QueryBox: React.FC = () => {
   return (
-    <div className="query-box">
-      <h2>Ask Your Question</h2>
-      <input type="text" placeholder="Type your question..." />
-      <button>Submit</button>
-    </div>
+    <section className="query-box">
+        <Dynamicloader />
+    </section>
   );
 };
 

@@ -1,0 +1,47 @@
+.user-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  gap: 12px;
+  width: 100%;
+  max-width: 350px;   
+  height: 70%; 
+}
+
+.user-location label {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 20px;     
+  color: #ffffff;   
+  align-self: center;  
+  text-align: center;
+}
+
+.user-location input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: black;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: Poppins, sans-serif;
+  background-color: #fff;  /* white background for input only */
+  box-sizing: border-box;
+}
+
+.user-location button {
+  padding: 10px 20px;
+  background-color: #1273df; /* blue theme */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.user-location button:hover {
+  background-color: #4a90e2;
+}

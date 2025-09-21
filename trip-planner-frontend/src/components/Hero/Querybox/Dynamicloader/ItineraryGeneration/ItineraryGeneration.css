@@ -1,0 +1,253 @@
+.loader-overlay {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 32px;
+  z-index: 1000;
+}
+
+.loader-label {
+  font-size: 1.5rem;
+  width: 50%;
+  color: #35bfff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.itinerary-generation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.itinerary-label {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  padding: 5px;
+  text-align: left;
+  color: #ffffff;
+  width: 100%;
+  height: 10%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  height: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.itinerary-summary {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  text-align: left;
+  color: black;
+  gap: 10px;
+}
+
+.summary-label {
+  padding: 5px;
+  text-align: left;
+  color: #3590ff;
+  width: 100%;
+  height: 10%;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-content {
+  width: 90%;
+  margin-left: 10px;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 16px;
+  text-align: left;
+  color: black;
+  text-overflow: none;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex-grow: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.itinerary-part {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  min-height: 100px;
+  height: auto;
+  flex-grow: 1;
+  width: 98%;
+  padding: 5px;
+  flex: 0 0 auto;
+}
+
+.itinerary-part:hover {
+  transform: translateY(-2px);
+}
+
+.part-header {
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #000000;
+  min-height: 20px;
+  height: 20px;
+  padding: 5px 10px;
+}
+
+.part-transport {
+  width: 95%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+  min-height: 20px;
+  height: 20px;
+  padding: 5px 10px;
+  background-color: #f2fbff;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.part-accomodation {
+  width: 95%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+  padding: 5px 10px;
+  background-color: #fffcf2;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.part-extra {
+  display: flex;
+  flex-direction: row;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #0077ff;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.part-guide {
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #ffffff;
+  background-color: #35bfff;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.part-photoshoot {
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #ffffff;
+  background-color: #35bfff;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.part-overview {
+  padding: 0 10px;
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  text-align: left;
+  color: black;
+  text-overflow: none;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.itinerary-confirmation {
+  padding: 8px 25px;
+  background-color: #ff7b00;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.2s;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.itinerary-confirmation:hover {
+  background-color: #e74100;
+}

@@ -1,0 +1,84 @@
+.trip-budget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.master-prompt {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.currency-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #202020;
+}
+
+.budget-input {
+  width: 100%;
+  padding: 10px 12px 10px 28px; /* leave space for ₹ */
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #202020;
+  box-sizing: border-box;
+  -moz-appearance: textfield; /* hide native arrows in Firefox */
+}
+
+.budget-input::-webkit-inner-spin-button,
+.budget-input::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* hide native arrows in Chrome/Safari */
+  margin: 0;
+}
+
+.budget-in-words {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: none;
+  background-color: #1273df;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #4a90e2;
+}

@@ -1,0 +1,48 @@
+.process-itinerary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.thankyou-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px 50px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.5s ease;
+}
+
+.thankyou-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff; /* blue theme */
+  margin-bottom: 20px;
+}
+
+.thankyou-message {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.thankyou-footer {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
