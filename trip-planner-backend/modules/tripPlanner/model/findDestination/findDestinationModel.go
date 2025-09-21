@@ -213,7 +213,9 @@ func GenerateDestinationSuggestion(ginCtx *gin.Context, userQuery string) (resul
 
 func EnrichDestinationImages(generatedContent *ContentGenerationResponse) {
 	for index, dest := range generatedContent.Locations {
-		generatedContent.Locations[index].Image = imageMedia.FetchMedia(dest.Place)
+		if !imageMedia.CheckValidMedia(dest.Image) {
+			generatedContent.Locations[index].Image = imageMedia.FetchMedia(dest.Place)
+		}
 	}
 }
 
