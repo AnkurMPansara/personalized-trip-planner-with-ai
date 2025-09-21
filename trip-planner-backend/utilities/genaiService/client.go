@@ -2,7 +2,6 @@ package genaiService
 
 import (
 	"context"
-	"os"
 
 	"google.golang.org/genai"
 )
@@ -15,7 +14,7 @@ func GetClient() (client *genai.Client, err error) {
 		return
 	}
 	clientConfig := genai.ClientConfig{
-		APIKey: os.Getenv("GEMINI_API_KEY"),
+		APIKey: "AIzaSyC3povMBxgTP6zh_9Nsq7HPTOb2r9SKS2Y",
 	}
 	client, clientErr := genai.NewClient(context.Background(), &clientConfig)
 	if clientErr != nil {
