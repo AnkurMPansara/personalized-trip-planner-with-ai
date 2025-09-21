@@ -1,0 +1,56 @@
+.headerExtra {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.topSection {
+    display: flex;
+    gap: 10px;
+}
+
+.dropdown {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 0;
+    color: #000000;
+    background-color: #fff;
+    font-family: Poppins, sans-serif !important;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 12px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: center;
+}
+
+.loginBtn {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    font-family: Poppins, sans-serif !important;
+    font-style: normal;
+    padding: 7px 20px;
+    background: #2093ef;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: #0000001a 0px 0px 7px;
+}
+
+.loginBtn:hover {
+    background-color: #4a90e2;
+}

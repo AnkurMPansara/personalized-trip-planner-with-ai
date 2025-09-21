@@ -1,0 +1,17 @@
+.query-box {
+  display: flex;
+  position: relative;
+  background: rgba(91, 181, 232, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  top: 25px;
+  border-radius: 16px;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 500px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+}

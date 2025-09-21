@@ -1,0 +1,52 @@
+.travel-type-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.travel-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.travel-btn {
+  flex: 1;
+  padding: 14px 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  width: 150px;
+  height: 100px;
+  color: #202020;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.travel-btn.selected {
+  background-color: #4fb9ff; /* very pale blue */
+  color: #ffffff;
+  border-color: #1273df;
+}
+
+.travel-btn:hover {
+  background-color: #0099ff; /* very pale blue */
+  color: #ffffff;
+  border-color: #004da5;
+}

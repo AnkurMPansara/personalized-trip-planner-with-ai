@@ -1,0 +1,162 @@
+.loader-overlay {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 32px;
+  z-index: 1000;
+}
+
+.loader-label {
+  font-size: 1.5rem;
+  width: 50%;
+  color: #35bfff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.locationsuggestion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.destination-label {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  padding: 5px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  height: 10%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-destination {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #808080;
+}
+
+.destination-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    height: 90%;
+    border-radius: 8px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.destination-card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  min-height: 200px;
+  height: 200px;
+  width: 100%;
+}
+
+.destination-card:hover {
+  transform: translateY(-2px);
+}
+
+.destination-image {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.destination-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 50%;
+}
+
+.destination-place {
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  color: #1e9aff;
+}
+
+.destination-cost {
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  color: #000000;
+}
+
+.destination-desc {
+  height: 70px;
+  width: 100%;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-size: 12px;
+  text-align: left;
+  padding: 5px;
+  color: #000000;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  display: -webkit-box; 
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.destination-select-btn {
+  padding: 8px 15px;
+  background-color: #ff7b00;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+  font-family: Poppins, sans-serif !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.destination-select-btn:hover {
+  background-color: #e74100;
+}
