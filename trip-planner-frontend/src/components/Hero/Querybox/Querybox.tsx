@@ -1,5 +1,5 @@
 import React from "react";
-import "./QueryBox.css";
+import "./Querybox.css";
 import Dynamicloader from "./Dynamicloader/Dynamicloader";
 
 const QueryBox: React.FC = () => {
