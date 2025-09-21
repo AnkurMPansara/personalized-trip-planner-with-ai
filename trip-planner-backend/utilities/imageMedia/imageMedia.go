@@ -1,7 +1,6 @@
 package imageMedia
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 	"time"
@@ -33,7 +32,6 @@ func FetchMedia(input string) string {
 	imageMediaRes := httpRequest.MakeHttpCall(imageMediaInput)
 
 	if imageMediaRes.Err != nil || imageMediaRes.StatusCode != http.StatusOK {
-		fmt.Print("some issue in fetching image, %w", imageMediaRes.StatusCode)
 		return ""
 	}
 

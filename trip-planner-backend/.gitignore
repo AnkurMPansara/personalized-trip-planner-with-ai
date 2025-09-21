@@ -5,5 +5,8 @@ go.sum
 # Ignore any centralLogging folder at any depth
 **/centralLogging/
 
+# Ignore build file
+/goOutputBuilds/
+
 #Ignore environment variables
 *.env

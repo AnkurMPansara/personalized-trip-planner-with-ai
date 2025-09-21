@@ -19,6 +19,7 @@ func FindDestination(ginCtx *gin.Context) {
 		apiResponse.Status = "Failure"
 		apiResponse.Error = bindErr.Error()
 		ReturnApiResponse(ginCtx, http.StatusBadRequest, apiResponse)
+		return
 	}
 
 	userQuery := findDestinationModel.GenerateUserQuery(apiInputParam)
@@ -27,6 +28,8 @@ func FindDestination(ginCtx *gin.Context) {
 		apiResponse.Code = http.StatusInternalServerError
 		apiResponse.Status = "Success"
 		apiResponse.Error = respErr.Error()
+		ReturnApiResponse(ginCtx, http.StatusBadRequest, apiResponse)
+		return
 	}
 	findDestinationModel.EnrichDestinationImages(&resp)
 	apiResponse.Code = http.StatusOK
