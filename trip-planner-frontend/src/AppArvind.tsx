@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
+// Import API components
+import FindDestinationAPI from './components/api/FindDestinationAPI';
+import GenerateItineraryAPI from './components/api/GenerateItineraryAPI';
+import ProcessItineraryAPI from './components/api/ProcessItineraryAPI';
+
+// Import UI components
+import DestinationSelection from './components/DestinationSelection';
+import ItineraryDisplay from './components/ItineraryDisplay';
+import SuccessMessage from './components/SuccessMessage';
+
 // --- Type Definitions ---
 interface TripFormData {
     destination: string;
@@ -19,19 +29,36 @@ interface Location {
     cost: string;
 }
 
-interface TripPlanResponse {
-    locations: Location[];
+interface Transport {
+    origin: string;
+    destination: string;
+    distance: string;
 }
 
-interface ApiResponse {
-    code: number;
-    status: string;
-    error: string;
-    response: TripPlanResponse;
+interface Accommodation {
+    duration: number;
+    area: string;
 }
+
+interface Itinerary {
+    overview: string;
+    start_date: string;
+    end_date: string;
+    transport: Transport[];
+    accomodation: Accommodation;
+    guide: boolean;
+    photoshoot: boolean;
+}
+
+interface ItineraryResponse {
+    itineraries: Itinerary[];
+    summary: string;
+}
+
+// Flow states
+type FlowState = 'form' | 'destinations' | 'itinerary' | 'success';
 
 // --- Script and Font Loader ---
-// This component loads the necessary Tailwind CSS script and Google Fonts.
 const ExternalResourcesLoader = () => {
   useEffect(() => {
     // Load Tailwind CSS
@@ -50,11 +77,10 @@ const ExternalResourcesLoader = () => {
       document.head.removeChild(tailwindScript);
       document.head.removeChild(fontLink);
     };
-  }, []); // The empty array ensures this effect runs only once on mount
+  }, []);
 
-  return null; // This component does not render any visible UI
+  return null;
 };
-
 
 // --- SVG Icon Components ---
 const LogoIcon = () => (
@@ -168,14 +194,13 @@ const Hero = ({ onSearch }: { onSearch: (formData: TripFormData) => void; }) => 
     
     const [days, setDays] = useState(7);
     const [date, setDate] = useState(() => {
-        const d = new Date(2025, 11, 15); // Month is 0-indexed, so 11 is December
+        const d = new Date(2025, 11, 15);
         return d.toISOString().split('T')[0];
     });
     const [people, setPeople] = useState(4);
     const [group, setGroup] = useState('family');
     const [budget, setBudget] = useState('medium');
     const [customReq, setCustomReq] = useState("Need vegetarian food options and kid-friendly activities");
-
 
     const categories = {
         'Easy Book': <EasyBookIcon />,
@@ -277,20 +302,6 @@ const Hero = ({ onSearch }: { onSearch: (formData: TripFormData) => void; }) => 
     );
 };
 
-/**
- * A card component to display a destination image and name.
- * @param {{ imageUrl: string, name: string }} props - The props for the component.
- * @param {string} props.imageUrl - The URL of the destination image.
- * @param {string} props.name - The name of the destination.
- */
-const DestinationCard = ({ imageUrl, name }: { imageUrl: string; name: string; }) => (
-    <div className="relative rounded-xl overflow-hidden shadow-lg group">
-        <img src={imageUrl} alt={name} className="w-full h-80 object-cover card-img" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <h3 className="absolute bottom-4 left-4 text-white text-xl font-bold">{name}</h3>
-    </div>
-);
-
 const TrendingDestinations = () => {
     const destinations = [
         { name: 'Europe', imageUrl: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop' },
@@ -306,7 +317,13 @@ const TrendingDestinations = () => {
                 <h2 className="text-3xl font-bold text-gray-800 text-center">Top Trending Destinations</h2>
                 <p className="text-center text-gray-600 mt-2">Explore the hottest travel spots around the globe.</p>
                 <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    {destinations.map(dest => <DestinationCard key={dest.name} {...dest} />)}
+                    {destinations.map(dest => (
+                        <div key={dest.name} className="relative rounded-xl overflow-hidden shadow-lg group">
+                            <img src={dest.imageUrl} alt={dest.name} className="w-full h-80 object-cover card-img" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <h3 className="absolute bottom-4 left-4 text-white text-xl font-bold">{dest.name}</h3>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
@@ -355,7 +372,6 @@ const Footer = () => (
     </footer>
 );
 
-// This component injects the global styles into the document's head
 const GlobalStyles = () => (
     <style>{`
         body {
@@ -376,136 +392,92 @@ const GlobalStyles = () => (
     `}</style>
 );
 
-const LocationCard = ({ location, onSelect }: { location: Location; onSelect: () => void }) => {
-    return (
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-2">
-            <img className="h-56 w-full object-cover" src={location.image} alt={`Image of ${location.place}`} />
-            <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-bold text-xl mb-2 text-gray-800">{location.place}</h3>
-                <p className="text-gray-600 text-base flex-grow">{location.description}</p>
-                <div className="mt-4">
-                    <p className="font-semibold text-gray-700">Estimated Cost:</p>
-                    <p className="text-indigo-600 font-bold text-lg">{location.cost}</p>
-                </div>
-                 <button 
-                    onClick={onSelect}
-                    className="mt-6 w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    Select Plan
-                </button>
-            </div>
-        </div>
-    );
-};
-
-const TripResults = ({ isLoading, error, tripPlan }: { 
-    isLoading: boolean; 
-    error: string | null; 
-    tripPlan: ApiResponse | null 
-}) => {
-    if (isLoading) {
-        return (
-            <div className="text-center py-20">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-indigo-600 mx-auto"></div>
-                <p className="mt-6 text-lg text-gray-600">Finding the best destinations for you...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <section className="container mx-auto px-4 sm:px-6 lg:px-8 my-10">
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
-                    <strong className="font-bold">Oops!</strong>
-                    <span className="block sm:inline ml-2">Something went wrong: {error}</span>
-                    <div className="mt-2 text-sm">
-                        <p>Debug info:</p>
-                        <p>• Check if backend is running on port 8080</p>
-                        <p>• Check browser console for more details</p>
-                        <p>• Try refreshing the page</p>
-                    </div>
-                </div>
-             </section>
-        );
-    }
-
-    if (!tripPlan || !tripPlan.response || tripPlan.response.locations.length === 0) {
-        return null; // Don't render anything if there's no plan yet
-    }
-
-    return (
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 my-10">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">We found these amazing destinations for you!</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {tripPlan.response.locations.map((location: Location) => (
-                   <LocationCard 
-                        key={location.place} 
-                        location={location} 
-                        onSelect={() => console.log("Selected:", location.place)}
-                    />
-               ))}
-            </div>
-        </section>
-    );
-};
-
 // --- Main App Component ---
-// This is the default export that will be rendered.
 export default function App() {
+    // Flow state management
+    const [currentFlow, setCurrentFlow] = useState<FlowState>('form');
+    
+    // Form data
+    const [formData, setFormData] = useState<TripFormData | null>(null);
+    
+    // Step 1: Destination selection
+    const [destinations, setDestinations] = useState<Location[]>([]);
+    const [selectedDestination, setSelectedDestination] = useState<Location | null>(null);
+    
+    // Step 2: Itinerary generation
+    const [itinerary, setItinerary] = useState<ItineraryResponse | null>(null);
+    
+    // Loading and error states
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [tripPlan, setTripPlan] = useState<ApiResponse | null>(null);
 
-    const handleSearch = async (formData: TripFormData) => {
-        console.log('Starting search with data:', formData);
-        setIsLoading(true);
+    // Handle form submission (Step 1)
+    const handleFormSubmit = (data: TripFormData) => {
+        console.log('Form submitted with data:', data);
+        setFormData(data);
+        setCurrentFlow('destinations');
         setError(null);
-        setTripPlan(null); // Clear previous results
+    };
 
-        const requestBody = {
-            user_id: 101,
-            is_international_travel: true, // Simplified for now
-            travel_days: Number(formData.days),
-            travel_date_time: new Date(formData.date).toISOString(),
-            traveling_method: "flight",
-            trip_nature: formData.activeCategory?.toLowerCase() || "leisure",
-            person_count: Number(formData.people),
-            group_demographic: formData.group.toLowerCase(),
-            budget: formData.budget.toLowerCase(),
-            custom_requirement: formData.customReq,
-            preferred_location: formData.destination,
-        };
-        
-        console.log('Request body:', requestBody);
-        
-        try {
-            console.log('Making API call to:', 'http://localhost:8080/tripPlanner/findDestination');
-            // NOTE: This is a call to a local server.
-            // It will only work if you have a server running on localhost:8080.
-            const response = await fetch('http://localhost:8080/tripPlanner/findDestination', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestBody),
-            });
+    // Handle destination selection (Step 2)
+    const handleDestinationSelect = (destination: Location) => {
+        console.log('Destination selected:', destination);
+        setSelectedDestination(destination);
+        setCurrentFlow('itinerary');
+        setError(null);
+    };
 
-            console.log('Response status:', response.status);
-            console.log('Response headers:', response.headers);
+    // Handle itinerary approval (Step 3)
+    const handleItineraryApprove = () => {
+        console.log('Itinerary approved, processing...');
+        setCurrentFlow('success');
+        setError(null);
+    };
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('API Error:', response.status, errorText);
-                throw new Error(`API Error: ${response.status} - ${errorText}`);
-            }
+    // Handle regeneration requests
+    const handleRegenerateDestinations = () => {
+        console.log('Regenerating destinations...');
+        setDestinations([]);
+        setError(null);
+        // The FindDestinationAPI component will automatically call the API again
+    };
 
-            const data: ApiResponse = await response.json();
-            console.log('API Response:', data);
-            setTripPlan(data);
-        } catch (e) {
-            console.error("Search failed:", e);
-            setError(e instanceof Error ? e.message : 'An unknown error occurred');
-        } finally {
-            // This block ensures the loader is turned off regardless of success or failure.
-            setIsLoading(false);
-        }
+    const handleRegenerateItinerary = () => {
+        console.log('Regenerating itinerary...');
+        setItinerary(null);
+        setError(null);
+        // The GenerateItineraryAPI component will automatically call the API again
+    };
+
+    // Handle starting a new trip
+    const handleStartNewTrip = () => {
+        console.log('Starting new trip...');
+        setCurrentFlow('form');
+        setFormData(null);
+        setDestinations([]);
+        setSelectedDestination(null);
+        setItinerary(null);
+        setError(null);
+    };
+
+    // Handle API callbacks
+    const handleDestinationsFound = (foundDestinations: Location[]) => {
+        console.log('Destinations found:', foundDestinations);
+        setDestinations(foundDestinations);
+    };
+
+    const handleItineraryGenerated = (generatedItinerary: ItineraryResponse) => {
+        console.log('Itinerary generated:', generatedItinerary);
+        setItinerary(generatedItinerary);
+    };
+
+    const handleError = (errorMessage: string) => {
+        console.error('Error occurred:', errorMessage);
+        setError(errorMessage);
+    };
+
+    const handleLoading = (loading: boolean) => {
+        setIsLoading(loading);
     };
 
     return (
@@ -514,10 +486,66 @@ export default function App() {
             <GlobalStyles />
             <Header />
             <main>
-                <Hero onSearch={handleSearch} />
-                <TripResults isLoading={isLoading} error={error} tripPlan={tripPlan} />
-                <TrendingDestinations />
-                <PromoBanner />
+                {/* Step 1: Form */}
+                {currentFlow === 'form' && (
+                    <Hero onSearch={handleFormSubmit} />
+                )}
+
+                {/* Step 2: Destination Selection */}
+                {currentFlow === 'destinations' && formData && (
+                    <>
+                        <FindDestinationAPI
+                            formData={formData}
+                            onDestinationsFound={handleDestinationsFound}
+                            onError={handleError}
+                            onLoading={handleLoading}
+                        />
+                        <DestinationSelection
+                            destinations={destinations}
+                            onSelectDestination={handleDestinationSelect}
+                            onRegenerateDestinations={handleRegenerateDestinations}
+                            isLoading={isLoading}
+                            error={error}
+                        />
+                    </>
+                )}
+
+                {/* Step 3: Itinerary Display */}
+                {currentFlow === 'itinerary' && selectedDestination && formData && (
+                    <>
+                        <GenerateItineraryAPI
+                            selectedDestination={selectedDestination}
+                            formData={formData}
+                            onItineraryGenerated={handleItineraryGenerated}
+                            onError={handleError}
+                            onLoading={handleLoading}
+                        />
+                        <ItineraryDisplay
+                            itinerary={itinerary!}
+                            onApproveItinerary={handleItineraryApprove}
+                            onRegenerateItinerary={handleRegenerateItinerary}
+                            isLoading={isLoading}
+                            error={error}
+                        />
+                    </>
+                )}
+
+                {/* Step 4: Success */}
+                {currentFlow === 'success' && itinerary && (
+                    <>
+                        <ProcessItineraryAPI
+                            itineraryData={itinerary}
+                            onSuccess={() => console.log('Trip processed successfully!')}
+                            onError={handleError}
+                            onLoading={handleLoading}
+                        />
+                        <SuccessMessage onStartNewTrip={handleStartNewTrip} />
+                    </>
+                )}
+
+                {/* Show trending destinations only on form step */}
+                {currentFlow === 'form' && <TrendingDestinations />}
+                {currentFlow === 'form' && <PromoBanner />}
             </main>
             <FloatingButtons />
             <Footer />
