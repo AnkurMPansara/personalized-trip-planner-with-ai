@@ -2,7 +2,6 @@ package imageMedia
 
 import (
 	"net/http"
-	"os"
 	"time"
 	globalconstant "trip-planner-backend/globalConstant"
 	"trip-planner-backend/utilities/httpRequest"
@@ -20,7 +19,7 @@ func FetchMedia(input string) string {
 	imageMediaInput.QueryParams = map[string]any{
 		"q":          input,
 		"searchType": "image",
-		"key":        os.Getenv("GOOGLE_IMAGE_API_KEY"),
+		"key":        "AIzaSyAFjvX9oTm9VHTE5CgTTrL_udiceF_1_tw",
 		"cx":         globalconstant.GOOGLE_IMAGE_CX_ID,
 		"num":        globalconstant.GOOGLE_MAX_IMAGE_LIMIT,
 	}

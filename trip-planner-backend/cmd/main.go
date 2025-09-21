@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"os"
 	"trip-planner-backend/handler"
 
 	"github.com/gin-contrib/cors"
@@ -12,13 +11,16 @@ import (
 )
 
 func main() {
+	fmt.Println("Starting the server...")
 	loadEnvErr := godotenv.Load()
 	if loadEnvErr != nil {
 		fmt.Println("Some error in loading env file: " + loadEnvErr.Error())
 	}
-	port := os.Getenv("LISTEN_PORT")
+	port := "8080"
 	ginEngine := gin.New()
-	
+
+	gin.SetMode(gin.ReleaseMode)
+
 	// Add CORS middleware with more permissive settings for development
 	ginEngine.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"}, // Allow all origins for development
@@ -27,7 +29,7 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: false, // Set to false when using wildcard origins
 	}))
-	
+
 	handler.RouteRequests(ginEngine)
 	server := &http.Server{
 		Addr:    ":" + port,
