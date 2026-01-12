@@ -1,4 +1,4 @@
-\<a name="readme-top"></a>
+<a name="readme-top"></a>
 
 
 
@@ -15,7 +15,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/your_username/personalized-trip-planner-with-ai">
+  <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -24,12 +24,12 @@
   <p align="center">
     An intelligent travel planning application that uses AI to suggest destinations and generate personalized itineraries!
     <br />
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Report Bug</a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues">Report Bug</a>
     ·
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Request Feature</a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues">Request Feature</a>
   </p>
 </div>
 
@@ -119,7 +119,7 @@ This is a monorepo containing both the frontend and backend applications. Follow
 
 1. Clone the repository
    ```sh
-   git clone https://github.com/your_username/personalized-trip-planner-with-ai.git
+   git clone https://github.com/AnkurMPansara/personalized-trip-planner-with-ai.git
    cd personalized-trip-planner-with-ai
    ```
 
@@ -131,8 +131,11 @@ This is a monorepo containing both the frontend and backend applications. Follow
    # Add your Google Gemini API key:
    # GEMINI_API_KEY=your_api_key_here
    
-   # Install Go dependencies
-   go mod download
+   # Initialize the package
+   go mod init trip-planner-backend
+
+   #Download all dependencies
+   go mod tidy
    
    # Run the backend server (default port: 8080)
    go run cmd/main.go
@@ -331,27 +334,27 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Ankur Pansara - ankur.at.surat@gmail.com
 
-Project Link: [https://github.com/your_username/personalized-trip-planner-with-ai](https://github.com/your_username/personalized-trip-planner-with-ai)
+Project Link: [https://github.com/AnkurMPansara/personalized-trip-planner-with-ai](https://github.com/AnkurMPansara/personalized-trip-planner-with-ai)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[contributors-url]: https://github.com/your_username/personalized-trip-planner-with-ai/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[forks-url]: https://github.com/your_username/personalized-trip-planner-with-ai/network/members
-[stars-shield]: https://img.shields.io/github/stars/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[stars-url]: https://github.com/your_username/personalized-trip-planner-with-ai/stargazers
-[issues-shield]: https://img.shields.io/github/issues/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[issues-url]: https://github.com/your_username/personalized-trip-planner-with-ai/issues
-[license-shield]: https://img.shields.io/github/license/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[license-url]: https://github.com/your_username/personalized-trip-planner-with-ai/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/forks
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/your_username
+[linkedin-url]: https://www.linkedin.com/in/ankur-pansara/
 [product-screenshot]: images/screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
