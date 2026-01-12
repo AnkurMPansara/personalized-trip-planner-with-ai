@@ -20,12 +20,12 @@
   <p align="center">
     RESTful API server built with Go and Gin framework, powered by Google Gemini AI for intelligent travel planning
     <br />
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Report Bug</a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues">Report Bug</a>
     ·
-    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Request Feature</a>
+    <a href="https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues">Request Feature</a>
   </p>
 </div>
 
@@ -110,9 +110,14 @@ The Trip Planner Backend is a high-performance REST API built with Go and the Gi
    cd trip-planner-backend
    ```
 
+2. Initialize the package
+   ```sh
+   go mod init trip-planner-backend
+   ```
+
 2. Install dependencies
    ```sh
-   go mod download
+   go mod tidy
    ```
 
 3. Create a `.env` file in the backend root directory
@@ -424,18 +429,18 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[contributors-url]: https://github.com/your_username/personalized-trip-planner-with-ai/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[forks-url]: https://github.com/your_username/personalized-trip-planner-with-ai/network/members
-[stars-shield]: https://img.shields.io/github/stars/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[stars-url]: https://github.com/your_username/personalized-trip-planner-with-ai/stargazers
-[issues-shield]: https://img.shields.io/github/issues/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[issues-url]: https://github.com/your_username/personalized-trip-planner-with-ai/issues
-[license-shield]: https://img.shields.io/github/license/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
-[license-url]: https://github.com/your_username/personalized-trip-planner-with-ai/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/forks
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/AnkurMPansara/personalized-trip-planner-with-ai/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/your_username
+[linkedin-url]: https://www.linkedin.com/in/ankur-pansara/
 [Go]: https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white
 [Go-url]: https://go.dev/
 [Gin]: https://img.shields.io/badge/Gin-00ADD8?style=for-the-badge&logo=go&logoColor=white
