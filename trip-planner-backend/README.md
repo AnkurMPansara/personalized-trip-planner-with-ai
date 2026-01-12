@@ -1,23 +1,8 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -30,23 +15,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Trip Planner Backend API</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    RESTful API server built with Go and Gin framework, powered by Google Gemini AI for intelligent travel planning
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/your_username/personalized-trip-planner-with-ai"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/your_username/personalized-trip-planner-with-ai/issues">Request Feature</a>
   </p>
 </div>
 
@@ -67,14 +46,15 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#configuration">Configuration</a></li>
       </ul>
     </li>
+    <li><a href="#api-endpoints">API Endpoints</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -83,18 +63,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+The Trip Planner Backend is a high-performance REST API built with Go and the Gin web framework. It integrates with Google Gemini AI (gemini-2.5-flash) to provide intelligent travel destination suggestions and detailed itinerary generation. The backend uses Google Search integration to ensure recommendations consider real-time travel conditions, weather forecasts, and safety advisories.
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+### Key Features
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+* **AI-Powered Recommendations**: Uses Google Gemini AI with Google Search integration for intelligent travel suggestions
+* **Real-Time Travel Intelligence**: Considers weather, advisories, events, and safety conditions
+* **Image Enrichment**: Automatic image validation and fallback system for destination images
+* **Structured JSON Responses**: Uses AI schema validation for consistent API responses
+* **Centralized Logging**: Comprehensive logging system for all API requests and responses
+* **CORS Support**: Configured for cross-origin requests from frontend applications
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,16 +80,10 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![Go][Go]][Go-url] - Programming language
+* [![Gin][Gin]][Gin-url] - Web framework
+* [![Google Gemini AI][Gemini]][Gemini-url] - AI model for travel recommendations
+* [![godotenv][godotenv]][godotenv-url] - Environment variable management
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,62 +92,306 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* **Go** (v1.23 or higher)
   ```sh
-  npm install npm@latest -g
+  # Download from https://go.dev/dl/
+  # Verify installation
+  go version
   ```
+* **Google Gemini API Key**
+  - Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Navigate to the backend directory
+   ```sh
+   cd trip-planner-backend
+   ```
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+2. Install dependencies
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   go mod download
    ```
-3. Install NPM packages
+
+3. Create a `.env` file in the backend root directory
    ```sh
-   npm install
+   # .env
+   GEMINI_API_KEY=your_api_key_here
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+
+4. Run the server
+   ```sh
+   go run cmd/main.go
    ```
+
+   The server will start on `http://localhost:8080`
+
+### Configuration
+
+The backend uses environment variables for configuration. Create a `.env` file with:
+
+```env
+GEMINI_API_KEY=your_google_gemini_api_key
+```
+
+**Note**: Currently, the API key is also hardcoded in `utilities/genaiService/client.go`. For production, ensure you use environment variables only.
+
+### Building for Production
+
+```sh
+# Build the binary
+go build -o goOutputBuilds/tripPlannerBackend cmd/main.go
+
+# Run the binary
+./goOutputBuilds/tripPlannerBackend
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- API ENDPOINTS -->
+## API Endpoints
+
+### Base URL
+```
+http://localhost:8080/tripPlanner
+```
+
+### 1. Find Destination
+
+**Endpoint:** `POST /findDestination`
+
+**Description:** Analyzes user preferences and returns AI-suggested travel destinations.
+
+**Request Body:**
+```json
+{
+  "user_id": 101,
+  "user_location": "India",
+  "is_international_travel": true,
+  "travel_days": 7,
+  "travel_date_time": "2025-10-01T00:00:00Z",
+  "traveling_method": "flight",
+  "trip_nature": "leisure",
+  "person_count": 2,
+  "group_demographic": "couple",
+  "budget": "medium",
+  "custom_requirement": "Beach destinations preferred",
+  "preferred_location": "Europe"
+}
+```
+
+**Response:**
+```json
+{
+  "code": 200,
+  "status": "Success",
+  "error": "",
+  "response": {
+    "locations": [
+      {
+        "place": "Santorini, Greece",
+        "image": "https://images.unsplash.com/...",
+        "description": "Stunning sunsets and white-washed buildings...",
+        "cost": "Approximately $2,500 - $3,500 for 7 days"
+      }
+    ]
+  }
+}
+```
+
+### 2. Generate Itinerary
+
+**Endpoint:** `POST /generateItinerary`
+
+**Description:** Generates a detailed day-by-day itinerary for the selected destination.
+
+**Request Body:**
+```json
+{
+  "user_id": 101,
+  "user_location": "India",
+  "destination": "Santorini, Greece",
+  "travel_days": 7,
+  "travel_date_time": "2025-10-01T00:00:00Z",
+  "person_count": 2,
+  "group_demographic": "couple"
+}
+```
+
+**Response:**
+```json
+{
+  "code": 200,
+  "status": "Success",
+  "error": "",
+  "response": {
+    "itineraries": [
+      {
+        "overview": "Explore the iconic blue-domed churches...",
+        "start_date": "01-10-25",
+        "end_date": "03-10-25",
+        "transport": [
+          {
+            "origin": "India",
+            "destination": "Santorini",
+            "distance": "6500 km"
+          }
+        ],
+        "accomodation": {
+          "duration": 3,
+          "area": "Oia, Santorini"
+        },
+        "guide": true,
+        "photoshoot": true
+      }
+    ],
+    "summary": "A romantic 7-day journey through Santorini..."
+  }
+}
+```
+
+### 3. Process Itinerary
+
+**Endpoint:** `POST /processItinerary`
+
+**Description:** Processes and finalizes the approved itinerary.
+
+**Request Body:**
+```json
+{
+  "user_id": 101,
+  "itinerary_data": { ... }
+}
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- PROJECT STRUCTURE -->
+## Project Structure
+
+```
+trip-planner-backend/
+├── cmd/
+│   └── main.go                    # Application entry point
+├── handler/
+│   └── handler.go                 # HTTP route handlers
+├── modules/
+│   └── tripPlanner/
+│       ├── controller/
+│       │   ├── findDestination/
+│       │   │   └── findDestinationController.go
+│       │   ├── generateItinerary/
+│       │   │   └── generateItineraryController.go
+│       │   └── processItinerary/
+│       │       └── processItineraryController.go
+│       └── model/
+│           ├── findDestination/
+│           │   └── findDestinationModel.go    # AI integration & business logic
+│           └── generateItinerary/
+│               └── generateItineraryModel.go   # AI integration & business logic
+├── utilities/
+│   ├── genaiService/
+│   │   ├── client.go              # Google Gemini client
+│   │   └── models.go              # GenAI model utilities
+│   ├── globalFunctions/
+│   │   └── commonFunctions.go     # Common utility functions
+│   ├── httpRequest/
+│   │   └── httpRequest.go         # HTTP request utilities
+│   └── imageMedia/
+│       └── imageMedia.go          # Image validation and fetching
+├── globalConstant/
+│   └── globalConstant.go          # Global constants (model names, API URLs)
+├── centralLogging/                # Application logs directory
+├── goOutputBuilds/                 # Compiled binaries
+├── go.mod                          # Go module dependencies
+└── go.sum                          # Dependency checksums
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- FEATURES -->
+## Features
+
+### AI Integration
+
+- **Google Gemini 2.5 Flash**: Fast and efficient AI model for travel recommendations
+- **Google Search Integration**: Real-time information retrieval for travel conditions
+- **Structured Output**: JSON schema validation ensures consistent API responses
+- **Intelligent Prompting**: System prompts optimized for travel recommendations
+
+### Image Processing
+
+- **Image Validation**: Validates image URLs from AI responses
+- **Fallback System**: Fetches images from Google Custom Search if AI-provided URLs are invalid
+- **High-Quality Images**: Ensures 16:9 aspect ratio and minimum 1600x900 resolution
+- **Public Sources**: Uses Unsplash, Pexels, Pixabay, or Wikimedia Commons
+
+### Logging
+
+- **Centralized Logging**: All API requests and responses are logged
+- **JSON Format**: Structured logs for easy parsing and analysis
+- **Date-Based Files**: Logs organized by date (e.g., `find_destination_2025_09_19.log`)
+- **Request Tracking**: Includes user inputs, API responses, and error information
+
+### Error Handling
+
+- **Comprehensive Error Handling**: Graceful error handling at all levels
+- **HTTP Status Codes**: Proper status codes for different error scenarios
+- **Error Messages**: Descriptive error messages in API responses
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- USAGE -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Running the Server
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+```sh
+# Development mode
+go run cmd/main.go
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+# Production build
+go build -o goOutputBuilds/tripPlannerBackend cmd/main.go
+./goOutputBuilds/tripPlannerBackend
+```
 
+### Testing Endpoints
 
+Using `curl`:
 
-<!-- ROADMAP -->
-## Roadmap
+```sh
+# Find Destination
+curl -X POST http://localhost:8080/tripPlanner/findDestination \
+  -H "Content-Type: application/json" \
+  -d '{
+    "user_id": 101,
+    "is_international_travel": true,
+    "travel_days": 7,
+    "travel_date_time": "2025-10-01T00:00:00Z",
+    "traveling_method": "flight",
+    "trip_nature": "leisure",
+    "person_count": 2,
+    "group_demographic": "couple",
+    "budget": "medium",
+    "preferred_location": "Europe"
+  }'
+```
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+### Environment Variables
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+The backend supports the following environment variables:
+
+- `GEMINI_API_KEY`: Your Google Gemini API key (required)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,7 +403,6 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -208,63 +423,24 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
+[contributors-url]: https://github.com/your_username/personalized-trip-planner-with-ai/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
+[forks-url]: https://github.com/your_username/personalized-trip-planner-with-ai/network/members
+[stars-shield]: https://img.shields.io/github/stars/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
+[stars-url]: https://github.com/your_username/personalized-trip-planner-with-ai/stargazers
+[issues-shield]: https://img.shields.io/github/issues/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
+[issues-url]: https://github.com/your_username/personalized-trip-planner-with-ai/issues
+[license-shield]: https://img.shields.io/github/license/your_username/personalized-trip-planner-with-ai.svg?style=for-the-badge
+[license-url]: https://github.com/your_username/personalized-trip-planner-with-ai/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[linkedin-url]: https://linkedin.com/in/your_username
+[Go]: https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white
+[Go-url]: https://go.dev/
+[Gin]: https://img.shields.io/badge/Gin-00ADD8?style=for-the-badge&logo=go&logoColor=white
+[Gin-url]: https://gin-gonic.com/
+[Gemini]: https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white
+[Gemini-url]: https://ai.google.dev/
+[godotenv]: https://img.shields.io/badge/godotenv-00ADD8?style=for-the-badge
+[godotenv-url]: https://github.com/joho/godotenv
